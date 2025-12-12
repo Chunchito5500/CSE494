@@ -62,7 +62,7 @@ def plot_comparison_bar():
         # Basic labeling on the graph parameters
         axes[idx].set_ylabel(label, fontsize=12, fontweight='bold')
         axes[idx].set_xlabel('Split Type', fontsize=12, fontweight='bold')
-        axes[idx].set_title(f'{label} Across Split Types (Baseline - 7.87)', fontsize=13, fontweight='bold')
+        axes[idx].set_title(f'{label} Across Split Types', fontsize=13, fontweight='bold')
         axes[idx].tick_params(axis='x', rotation=15)
         
         # To highlight the improvement we got per split, we add a baseline comparison for MSE
@@ -73,6 +73,7 @@ def plot_comparison_bar():
         if metric == 'mse':
             # The baseline value is 7.87, so we draw a line at this value and label it as the baseline. 
             # The further any split's MSE is from this baseline, the better it is at predicting IC50 value.
+            axes[idx].set_title(f'MSE Across Split Types (Baseline - 7.87)', fontsize=13, fontweight='bold')
             axes[idx].axhline(y=7.87, color='red', linestyle='--', linewidth=2, label='Baseline')
     
     # Save the plot at the appropriate destination
